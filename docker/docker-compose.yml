@@ -1,0 +1,102 @@
+version: '3.8'
+
+services:
+  # API Server - Backend service providing REST API
+  api-server:
+    image: ${DOCKER_REGISTRY:-}legal-prejudice/api-server:${TAG:-latest}
+    build:
+      context: ../api-server
+      dockerfile: Dockerfile
+    restart: unless-stopped
+    depends_on:
+      - db
+    environment:
+      - DATABASE_URL=postgresql://${DB_USER:-postgres}:${DB_PASSWORD:-postgres}@db:5432/${DB_NAME:-legal_prejudice}
+      - SECRET_KEY=${API_SECRET_KEY:-changeme}
+      - LOG_LEVEL=${LOG_LEVEL:-info}
+      - ALLOWED_ORIGINS=${ALLOWED_ORIGINS:-*}
+      - ENABLE_DOCS=${ENABLE_DOCS:-true}
+    volumes:
+      - legal_prejudice_uploads:/app/uploads
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:5000/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 10s
+    networks:
+      - backend
+      - frontend
+
+  # Web Frontend - User interface and calculator
+  web-frontend:
+    image: ${DOCKER_REGISTRY:-}legal-prejudice/web-frontend:${TAG:-latest}
+    build:
+      context: ../web-calculator
+      dockerfile: Dockerfile
+    restart: unless-stopped
+    environment:
+      - API_URL=${API_URL:-http://api-server:5000}
+      - NODE_ENV=${NODE_ENV:-production}
+    networks:
+      - frontend
+
+  # Database - PostgreSQL for data storage
+  db:
+    image: postgres:14-alpine
+    restart: unless-stopped
+    environment:
+      - POSTGRES_USER=${DB_USER:-postgres}
+      - POSTGRES_PASSWORD=${DB_PASSWORD:-postgres}
+      - POSTGRES_DB=${DB_NAME:-legal_prejudice}
+    volumes:
+      - legal_prejudice_db_data:/var/lib/postgresql/data
+      - ./init-scripts:/docker-entrypoint-initdb.d
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${DB_USER:-postgres}"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    networks:
+      - backend
+
+  # Nginx - Web server and reverse proxy
+  nginx:
+    image: nginx:alpine
+    restart: unless-stopped
+    ports:
+      - "${EXTERNAL_PORT:-8080}:80"
+      - "${EXTERNAL_SSL_PORT:-8443}:443"
+    volumes:
+      - ./nginx/conf.d:/etc/nginx/conf.d
+      - ./nginx/certs:/etc/nginx/certs
+      - legal_prejudice_logs:/var/log/nginx
+    depends_on:
+      - api-server
+      - web-frontend
+    networks:
+      - frontend
+
+  # Redis - For caching and session management (optional)
+  redis:
+    image: redis:alpine
+    restart: unless-stopped
+    command: redis-server --appendonly yes
+    volumes:
+      - legal_prejudice_redis:/data
+    networks:
+      - backend
+
+volumes:
+  legal_prejudice_db_data:
+    driver: local
+  legal_prejudice_uploads:
+    driver: local
+  legal_prejudice_logs:
+    driver: local
+  legal_prejudice_redis:
+    driver: local
+
+networks:
+  frontend:
+  backend:

@@ -1,0 +1,18 @@
+# GitHub Pages configuration
+title: Legal Prejudice Analysis
+description: A comprehensive framework and toolset for analyzing, documenting, and responding to potential legal prejudice in judicial proceedings
+url: https://legal-prejudice-analysis.org
+baseurl: ""
+
+# Build settings
+markdown: kramdown
+theme: minima
+plugins:
+  - jekyll-feed
+
+# Exclude from processing
+exclude:
+  - create_logo.py
+  - create_hero_image.py
+  - create_feature_images.py
+  - create_additional_images.py
