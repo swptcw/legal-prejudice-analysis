@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Legal Prejudice Analysis API Documentation</title>
+    <meta name="description" content="Comprehensive API documentation for integrating the Legal Prejudice Analysis framework into your legal software and case management systems.">
+    <meta name="keywords" content="legal prejudice, API documentation, legal software integration, case management, REST API">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="../assets/favicon.png">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="../assets/css/styles.css">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    
+    <!-- Prism.js for syntax highlighting -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/themes/prism.min.css">
+    
+    <!-- Open Graph / Social Media -->
+    <meta property="og:title" content="Legal Prejudice Analysis API Documentation">
+    <meta property="og:description" content="Comprehensive API documentation for integrating the Legal Prejudice Analysis framework into your legal software and case management systems.">
+    <meta property="og:image" content="https://api.legal-prejudice-analysis.org/assets/images/og-image.jpg">
+    <meta property="og:url" content="https://api.legal-prejudice-analysis.org/">
+    <meta property="og:type" content="website">
+    
+    <style>
+        .api-header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 3rem 0;
+            text-align: center;
+        }
+        
+        .api-header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .api-header p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .api-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        .api-section {
+            margin-bottom: 3rem;
+        }
+        
+        .endpoint {
+            background-color: var(--light-accent);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .endpoint-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+        
+        .method {
+            font-weight: bold;
+            padding: 0.3rem 0.8rem;
+            border-radius: 4px;
+            margin-right: 1rem;
+            font-family: var(--font-mono);
+            font-size: 0.9rem;
+        }
+        
+        .get {
+            background-color: #61affe;
+            color: white;
+        }
+        
+        .post {
+            background-color: #49cc90;
+            color: white;
+        }
+        
+        .put {
+            background-color: #fca130;
+            color: white;
+        }
+        
+        .delete {
+            background-color: #f93e3e;
+            color: white;
+        }
+        
+        .path {
+            font-family: var(--font-mono);
+            font-size: 1.1rem;
+        }
+        
+        .endpoint-description {
+            margin-bottom: 1rem;
+        }
+        
+        .parameters, .responses {
+            margin-top: 1.5rem;
+        }
+        
+        .code-example {
+            margin-top: 1.5rem;
+        }
+        
+        .tab-container {
+            margin-bottom: 1rem;
+        }
+        
+        .tab-buttons {
+            display: flex;
+            border-bottom: 1px solid var(--border-color);
+        }
+        
+        .tab-button {
+            padding: 0.5rem 1rem;
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-family: var(--font-body);
+            font-size: 0.9rem;
+        }
+        
+        .tab-button.active {
+            border-bottom: 2px solid var(--accent-color);
+            font-weight: bold;
+        }
+        
+        .tab-content {
+            display: none;
+            padding: 1rem 0;
+        }
+        
+        .tab-content.active {
+            display: block;
+        }
+        
+        .coming-soon {
+            text-align: center;
+            padding: 3rem 0;
+        }
+        
+        .coming-soon h2 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+        
+        .coming-soon p {
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto 2rem;
+        }
+    </style>
+<script src="https://sites.super.myninja.ai/_assets/ninja-daytona-script.js"></script>
+</head>
+<body>
+    <header class="site-header">
+        <div class="container">
+            <div class="logo">
+                <a href="../">
+                    <img src="../assets/images/logo.svg" alt="Legal Prejudice Analysis Logo">
+                    <span>Legal Prejudice Analysis</span>
+                </a>
+            </div>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="../framework/">Framework</a></li>
+                    <li><a href="../risk-analysis/">Risk Analysis</a></li>
+                    <li><a href="../practical-guide/">Practical Guide</a></li>
+                    <li><a href="../case-studies/">Case Studies</a></li>
+                    <li><a href="../demo/">Interactive Demo</a></li>
+                </ul>
+            </nav>
+            <div class="mobile-nav-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </header>
+
+    <div class="api-header">
+        <div class="container">
+            <h1>Legal Prejudice Analysis API</h1>
+            <p>Integrate the Legal Prejudice Analysis framework into your legal software and case management systems with our comprehensive REST API.</p>
+        </div>
+    </div>
+
+    <main class="api-content">
+        <div class="coming-soon">
+            <h2>API Documentation Coming Soon</h2>
+            <p>We're currently finalizing our API documentation. Check back in September 2025 for comprehensive documentation, code examples, and integration guides.</p>
+            <a href="../docs/" class="button">Explore Documentation</a>
+        </div>
+        
+        <div class="api-section">
+            <h2>API Overview</h2>
+            <p>The Legal Prejudice Analysis API provides programmatic access to the risk assessment and probability analysis framework. With this API, you can:</p>
+            
+            <ul>
+                <li>Create and manage prejudice assessments</li>
+                <li>Calculate risk scores based on multiple factors</li>
+                <li>Generate recommendations based on risk levels</li>
+                <li>Store and retrieve assessment history</li>
+                <li>Integrate with case management systems</li>
+                <li>Receive real-time notifications via webhooks</li>
+            </ul>
+        </div>
+        
+        <div class="api-section">
+            <h2>Sample Endpoint</h2>
+            
+            <div class="endpoint">
+                <div class="endpoint-header">
+                    <span class="method post">POST</span>
+                    <span class="path">/api/v1/assessments</span>
+                </div>
+                
+                <div class="endpoint-description">
+                    <p>Create a new prejudice assessment.</p>
+                </div>
+                
+                <div class="parameters">
+                    <h4>Request Parameters</h4>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Parameter</th>
+                                <th>Type</th>
+                                <th>Required</th>
+                                <th>Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>case_id</td>
+                                <td>string</td>
+                                <td>Yes</td>
+                                <td>Unique identifier for the case</td>
+                            </tr>
+                            <tr>
+                                <td>factors</td>
+                                <td>array</td>
+                                <td>Yes</td>
+                                <td>Array of prejudice factors to evaluate</td>
+                            </tr>
+                            <tr>
+                                <td>context</td>
+                                <td>object</td>
+                                <td>No</td>
+                                <td>Additional context information</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                <div class="code-example">
+                    <div class="tab-container">
+                        <div class="tab-buttons">
+                            <button class="tab-button active" data-tab="request">Request</button>
+                            <button class="tab-button" data-tab="response">Response</button>
+                        </div>
+                        
+                        <div class="tab-content active" data-tab="request">
+                            <pre><code class="language-json">{
+  "case_id": "case-12345",
+  "factors": [
+    {
+      "type": "relationship",
+      "description": "Judge previously represented defendant's company",
+      "likelihood": 4,
+      "impact": 3
+    },
+    {
+      "type": "conduct",
+      "description": "Judge made disparaging remarks about plaintiff's industry",
+      "likelihood": 3,
+      "impact": 4
+    }
+  ],
+  "context": {
+    "case_type": "commercial_litigation",
+    "procedural_posture": "pre_trial",
+    "time_sensitivity": "medium"
+  }
+}</code></pre>
+                        </div>
+                        
+                        <div class="tab-content" data-tab="response">
+                            <pre><code class="language-json">{
+  "assessment_id": "asmt-67890",
+  "case_id": "case-12345",
+  "created_at": "2025-08-30T12:34:56Z",
+  "overall_risk": {
+    "score": 12,
+    "level": "high",
+    "description": "Significant risk of prejudice requiring prompt attention"
+  },
+  "factor_analysis": [
+    {
+      "type": "relationship",
+      "description": "Judge previously represented defendant's company",
+      "likelihood": 4,
+      "impact": 3,
+      "risk_score": 12,
+      "risk_level": "high"
+    },
+    {
+      "type": "conduct",
+      "description": "Judge made disparaging remarks about plaintiff's industry",
+      "likelihood": 3,
+      "impact": 4,
+      "risk_score": 12,
+      "risk_level": "high"
+    }
+  ],
+  "recommendations": [
+    {
+      "priority": "high",
+      "action": "Consider filing recusal motion",
+      "timeframe": "Within 7 days",
+      "rationale": "Multiple high-risk factors with statutory implications"
+    },
+    {
+      "priority": "medium",
+      "action": "Document all relevant interactions",
+      "timeframe": "Immediate and ongoing",
+      "rationale": "Create record for potential appeal"
+    }
+  ]
+}</code></pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="api-section">
+            <h2>Authentication</h2>
+            <p>The API uses API keys for authentication. All requests must include an <code>Authorization</code> header with your API key.</p>
+            
+            <pre><code class="language-bash">curl -X POST "https://api.legal-prejudice-analysis.org/api/v1/assessments" \
+  -H "Authorization: Bearer YOUR_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{"case_id": "case-12345", "factors": [...]}'</code></pre>
+        </div>
+        
+        <div class="api-section">
+            <h2>Rate Limits</h2>
+            <p>The API has the following rate limits:</p>
+            
+            <ul>
+                <li>Free tier: 100 requests per day</li>
+                <li>Professional tier: 1,000 requests per day</li>
+                <li>Enterprise tier: Custom limits</li>
+            </ul>
+        </div>
+        
+        <div class="api-section">
+            <h2>Stay Updated</h2>
+            <p>Sign up to be notified when our full API documentation is available:</p>
+            
+            <form class="api-signup">
+                <input type="email" placeholder="Your email address" required>
+                <button type="submit" class="button">Notify Me</button>
+            </form>
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <img src="../assets/images/logo-white.svg" alt="Legal Prejudice Analysis Logo">
+                    <p>Legal Prejudice Analysis</p>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h4>Documentation</h4>
+                        <ul>
+                            <li><a href="../framework/">Framework</a></li>
+                            <li><a href="../risk-analysis/">Risk Analysis</a></li>
+                            <li><a href="../practical-guide/">Practical Guide</a></li>
+                            <li><a href="../case-studies/">Case Studies</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h4>Resources</h4>
+                        <ul>
+                            <li><a href="../demo/">Interactive Demo</a></li>
+                            <li><a href="../downloads/">Downloads</a></li>
+                            <li><a href="../api/">API Documentation</a></li>
+                            <li><a href="../forum/">Community Forum</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h4>Project</h4>
+                        <ul>
+                            <li><a href="https://github.com/swptcw/legal-prejudice-analysis">GitHub Repository</a></li>
+                            <li><a href="https://github.com/swptcw/legal-prejudice-analysis/issues">Issue Tracker</a></li>
+                            <li><a href="https://github.com/swptcw/legal-prejudice-analysis/blob/main/CONTRIBUTING.md">Contributing</a></li>
+                            <li><a href="https://github.com/swptcw/legal-prejudice-analysis/blob/main/LICENSE">License</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Legal Prejudice Analysis Project. All rights reserved.</p>
+                <div class="social-links">
+                    <a href="https://github.com/swptcw/legal-prejudice-analysis" target="_blank"><i class="fab fa-github"></i></a>
+                    <a href="https://twitter.com/legalprejudice" target="_blank"><i class="fab fa-twitter"></i></a>
+                    <a href="https://linkedin.com/company/legal-prejudice-analysis" target="_blank"><i class="fab fa-linkedin"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/components/prism-json.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/components/prism-bash.min.js"></script>
+    <script src="../assets/js/main.js"></script>
+    
+    <script>
+        // Tab functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const tabButtons = document.querySelectorAll('.tab-button');
+            
+            tabButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const tabContainer = this.closest('.tab-container');
+                    const tabName = this.getAttribute('data-tab');
+                    
+                    // Deactivate all tabs
+                    tabContainer.querySelectorAll('.tab-button').forEach(btn => {
+                        btn.classList.remove('active');
+                    });
+                    
+                    tabContainer.querySelectorAll('.tab-content').forEach(content => {
+                        content.classList.remove('active');
+                    });
+                    
+                    // Activate selected tab
+                    this.classList.add('active');
+                    tabContainer.querySelector(`.tab-content[data-tab="${tabName}"]`).classList.add('active');
+                });
+            });
+            
+            // Form submission (placeholder)
+            const apiSignup = document.querySelector('.api-signup');
+            if (apiSignup) {
+                apiSignup.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    const email = this.querySelector('input[type="email"]').value;
+                    alert(`Thank you! We'll notify ${email} when the API documentation is available.`);
+                    this.reset();
+                });
+            }
+        });
+    </script>
+</body>
+</html>

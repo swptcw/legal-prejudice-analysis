@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Framework Documentation | Legal Prejudice Analysis</title>
+    <meta name="description" content="Comprehensive documentation of the Legal Prejudice Analysis framework, including legal standards, precedents, and evaluation methodology.">
+    <meta name="keywords" content="legal prejudice, judicial bias, legal framework, legal standards, court precedents">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="../assets/favicon.png">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="../assets/css/styles.css">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    
+    <!-- Prism.js for syntax highlighting -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/themes/prism.min.css">
+    
+    <!-- Open Graph / Social Media -->
+    <meta property="og:title" content="Framework Documentation | Legal Prejudice Analysis">
+    <meta property="og:description" content="Comprehensive documentation of the Legal Prejudice Analysis framework, including legal standards, precedents, and evaluation methodology.">
+    <meta property="og:image" content="https://docs.legal-prejudice-analysis.org/assets/images/og-image.jpg">
+    <meta property="og:url" content="https://docs.legal-prejudice-analysis.org/framework/">
+    <meta name="twitter:card" content="summary_large_image">
+<script src="https://sites.super.myninja.ai/_assets/ninja-daytona-script.js"></script>
+</head>
+<body>
+    <div class="documentation-layout">
+        <!-- Sidebar Navigation -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <a href="/" class="sidebar-logo">
+                    <img src="../assets/images/logo.png" alt="Legal Prejudice Analysis Logo">
+                </a>
+                <button class="sidebar-toggle" aria-label="Toggle Sidebar">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+            
+            <div class="sidebar-search">
+                <div class="search-container">
+                    <input type="text" id="search-input" placeholder="Search documentation...">
+                    <button id="search-button" aria-label="Search">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </div>
+                <div id="search-results" class="search-results"></div>
+            </div>
+            
+            <nav class="sidebar-nav">
+                <ul>
+                    <li class="nav-item">
+                        <a href="../index.html" class="nav-link">Documentation Home</a>
+                    </li>
+                    <li class="nav-item has-submenu open">
+                        <a href="#" class="nav-link">Framework Documentation</a>
+                        <ul class="submenu">
+                            <li><a href="index.html" class="active">Overview</a></li>
+                            <li><a href="legal-standards.html">Legal Standards</a></li>
+                            <li><a href="precedents.html">Key Precedents</a></li>
+                            <li><a href="methodology.html">Evaluation Methodology</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item has-submenu">
+                        <a href="#" class="nav-link">Risk Analysis</a>
+                        <ul class="submenu">
+                            <li><a href="../risk-analysis/index.html">Overview</a></li>
+                            <li><a href="../risk-analysis/quantitative-methods.html">Quantitative Methods</a></li>
+                            <li><a href="../risk-analysis/probability.html">Probability Analysis</a></li>
+                            <li><a href="../risk-analysis/risk-matrices.html">Risk Matrices</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item has-submenu">
+                        <a href="#" class="nav-link">Practical Implementation</a>
+                        <ul class="submenu">
+                            <li><a href="../practical-guide/index.html">Overview</a></li>
+                            <li><a href="../practical-guide/triage-protocol.html">48-hour Triage Protocol</a></li>
+                            <li><a href="../practical-guide/response-options.html">Strategic Response Options</a></li>
+                            <li><a href="../practical-guide/templates.html">Documentation Templates</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item has-submenu">
+                        <a href="#" class="nav-link">Case Studies</a>
+                        <ul class="submenu">
+                            <li><a href="../case-studies/index.html">Overview</a></li>
+                            <li><a href="../case-studies/case1.html">Case Study 1</a></li>
+                            <li><a href="../case-studies/case2.html">Case Study 2</a></li>
+                            <li><a href="../case-studies/patterns.html">Common Patterns</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item has-submenu">
+                        <a href="#" class="nav-link">API Documentation</a>
+                        <ul class="submenu">
+                            <li><a href="../api/index.html">API Overview</a></li>
+                            <li><a href="../api/authentication.html">Authentication</a></li>
+                            <li><a href="../api/endpoints.html">Endpoints</a></li>
+                            <li><a href="../api/webhooks.html">Webhooks</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item has-submenu">
+                        <a href="#" class="nav-link">Integration Guides</a>
+                        <ul class="submenu">
+                            <li><a href="../integration/index.html">Integration Overview</a></li>
+                            <li><a href="../integration/clio.html">Clio Integration</a></li>
+                            <li><a href="../integration/practice-panther.html">Practice Panther</a></li>
+                            <li><a href="../integration/custom.html">Custom Integrations</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+            
+            <div class="sidebar-footer">
+                <a href="https://github.com/swptcw/legal-prejudice-analysis" class="github-link">
+                    <i class="fab fa-github"></i> GitHub
+                </a>
+                <a href="https://legal-prejudice-analysis.org" class="home-link">
+                    <i class="fas fa-home"></i> Main Site
+                </a>
+            </div>
+        </aside>
+        
+        <!-- Main Content -->
+        <main class="main-content">
+            <div class="content-header">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="../index.html">Documentation</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">Framework Overview</li>
+                    </ol>
+                </nav>
+                
+                <div class="page-actions">
+                    <a href="https://github.com/swptcw/legal-prejudice-analysis/edit/main/docs/framework/index.md" class="btn btn-sm btn-outline">
+                        <i class="fas fa-edit"></i> Edit this page
+                    </a>
+                    <button class="btn btn-sm btn-outline" id="print-button">
+                        <i class="fas fa-print"></i> Print
+                    </button>
+                </div>
+            </div>
+            
+            <div class="content">
+                <h1>Legal Prejudice Analysis Framework</h1>
+                
+                <p class="lead">
+                    The Legal Prejudice Analysis Framework establishes a structured methodology for identifying, assessing, and responding to potential judicial prejudice in legal proceedings. This foundational component provides the definitions, standards, and evaluation criteria based on statutory provisions and key Supreme Court precedents.
+                </p>
+                
+                <div class="alert alert-info">
+                    <i class="fas fa-info-circle"></i>
+                    <strong>Framework Foundation:</strong> This framework is built upon statutory provisions (28 U.S.C. §§ 455, 144) and key Supreme Court precedents including Liteky v. United States and Caperton v. A.T. Massey Coal Co.
+                </div>
+                
+                <h2 id="framework-overview">Framework Overview</h2>
+                
+                <p>
+                    The Legal Prejudice Analysis Framework provides a comprehensive approach to evaluating potential judicial prejudice by establishing:
+                </p>
+                
+                <ul>
+                    <li><strong>Clear definitions</strong> of legal prejudice based on statutory provisions and case law</li>
+                    <li><strong>Structured methodology</strong> for identifying and categorizing different types of prejudice</li>
+                    <li><strong>Evaluation criteria</strong> for assessing the severity and impact of potential prejudice</li>
+                    <li><strong>Legal standards</strong> for determining when prejudice rises to the level requiring judicial action</li>
+                    <li><strong>Procedural guidance</strong> for properly documenting and addressing prejudice concerns</li>
+                </ul>
+                
+                <h2 id="framework-components">Framework Components</h2>
+                
+                <p>
+                    The framework consists of three primary components that work together to provide a comprehensive approach to legal prejudice analysis:
+                </p>
+                
+                <div class="card-grid">
+                    <div class="card">
+                        <div class="card-icon">
+                            <i class="fas fa-gavel"></i>
+                        </div>
+                        <div class="card-content">
+                            <h3>Legal Standards</h3>
+                            <p>Definitions and standards derived from statutory provisions and case law that establish the legal basis for prejudice claims.</p>
+                            <a href="legal-standards.html" class="btn btn-primary">Explore Legal Standards</a>
+                        </div>
+                    </div>
+                    
+                    <div class="card">
+                        <div class="card-icon">
+                            <i class="fas fa-landmark"></i>
+                        </div>
+                        <div class="card-content">
+                            <h3>Key Precedents</h3>
+                            <p>Analysis of seminal Supreme Court cases that have shaped the understanding and application of prejudice standards.</p>
+                            <a href="precedents.html" class="btn btn-primary">Explore Key Precedents</a>
+                        </div>
+                    </div>
+                    
+                    <div class="card">
+                        <div class="card-icon">
+                            <i class="fas fa-clipboard-list"></i>
+                        </div>
+                        <div class="card-content">
+                            <h3>Evaluation Methodology</h3>
+                            <p>Structured approach to evaluating potential prejudice, including factor identification, categorization, and assessment.</p>
+                            <a href="methodology.html" class="btn btn-primary">Explore Methodology</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <h2 id="prejudice-categories">Prejudice Categories</h2>
+                
+                <p>
+                    The framework categorizes potential judicial prejudice into three main types, each with distinct characteristics and evaluation criteria:
+                </p>
+                
+                <div class="table-responsive">
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th>Category</th>
+                                <th>Description</th>
+                                <th>Examples</th>
+                                <th>Legal Standards</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Relationship-Based Prejudice</strong></td>
+                                <td>Prejudice arising from personal, professional, financial, or other relationships between the judge and parties, attorneys, or witnesses.</td>
+                                <td>
+                                    - Prior representation of a party<br>
+                                    - Financial interest in outcome<br>
+                                    - Family relationship with participant
+                                </td>
+                                <td>
+                                    - 28 U.S.C. § 455(b)(1)-(5)<br>
+                                    - Caperton v. A.T. Massey Coal Co.
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><strong>Conduct-Based Prejudice</strong></td>
+                                <td>Prejudice manifested through judicial conduct during proceedings, including statements, rulings, and treatment of participants.</td>
+                                <td>
+                                    - Disparaging remarks about party<br>
+                                    - Consistently adverse rulings<br>
+                                    - Unequal treatment of counsel
+                                </td>
+                                <td>
+                                    - 28 U.S.C. § 455(a)<br>
+                                    - Liteky v. United States
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><strong>Contextual Prejudice</strong></td>
+                                <td>Prejudice arising from the broader context of the case, including public statements, prior involvement in related matters, or extrajudicial knowledge.</td>
+                                <td>
+                                    - Public statements on case issues<br>
+                                    - Prior involvement in related cases<br>
+                                    - Extrajudicial knowledge of facts
+                                </td>
+                                <td>
+                                    - 28 U.S.C. § 455(a), (b)(1)<br>
+                                    - Williams v. Pennsylvania
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                <h2 id="framework-application">Framework Application</h2>
+                
+                <p>
+                    The Legal Prejudice Analysis Framework is applied through a structured process that integrates with the other components of the system:
+                </p>
+                
+                <ol>
+                    <li>
+                        <strong>Identification</strong> - Recognize potential prejudice factors using the framework's categories and definitions.
+                        <ul>
+                            <li>Apply legal standards to identify qualifying factors</li>
+                            <li>Categorize factors by type (relationship, conduct, contextual)</li>
+                            <li>Document initial observations with reference to applicable standards</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <strong>Assessment</strong> - Evaluate identified factors using the <a href="../risk-analysis/index.html">Risk Analysis</a> component.
+                        <ul>
+                            <li>Apply quantitative methods to assess likelihood and impact</li>
+                            <li>Use risk matrices to categorize overall risk level</li>
+                            <li>Apply probability analysis to evaluate strength of evidence</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <strong>Response</strong> - Develop appropriate responses using the <a href="../practical-guide/index.html">Practical Implementation</a> component.
+                        <ul>
+                            <li>Follow the 48-hour triage protocol for immediate action</li>
+                            <li>Select strategic response options based on risk level</li>
+                            <li>Use documentation templates to properly record concerns</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <strong>Validation</strong> - Compare with similar scenarios in the <a href="../case-studies/index.html">Case Studies</a> component.
+                        <ul>
+                            <li>Identify relevant precedent cases with similar factors</li>
+                            <li>Compare assessment and response strategies</li>
+                            <li>Refine approach based on documented outcomes</li>
+                        </ul>
+                    </li>
+                </ol>
+                
+                <h2 id="integration-with-other-components">Integration with Other Components</h2>
+                
+                <p>
+                    The Legal Prejudice Analysis Framework serves as the foundation for the entire system, with direct connections to all other components:
+                </p>
+                
+                <div class="framework-diagram">
+                    <img src="../assets/images/framework-integration.png" alt="Framework Integration Diagram" class="img-fluid">
+                </div>
+                
+                <ul>
+                    <li>
+                        <strong>Risk Analysis</strong> - The framework provides the legal basis and factor definitions that are quantified and assessed in the risk analysis component.
+                        <a href="../risk-analysis/index.html" class="component-link">See Risk Analysis <i class="fas fa-arrow-right"></i></a>
+                    </li>
+                    <li>
+                        <strong>Practical Implementation</strong> - The framework's legal standards inform the response strategies and documentation requirements in the practical implementation component.
+                        <a href="../practical-guide/index.html" class="component-link">See Practical Implementation <i class="fas fa-arrow-right"></i></a>
+                    </li>
+                    <li>
+                        <strong>Case Studies</strong> - The framework provides the analytical structure used to evaluate and categorize the scenarios in the case studies component.
+                        <a href="../case-studies/index.html" class="component-link">See Case Studies <i class="fas fa-arrow-right"></i></a>
+                    </li>
+                </ul>
+                
+                <h2 id="key-references">Key References</h2>
+                
+                <h3>Statutory Provisions</h3>
+                
+                <ul>
+                    <li>
+                        <strong>28 U.S.C. § 455</strong> - Disqualification of justice, judge, or magistrate judge
+                        <ul>
+                            <li>§ 455(a) - General standard requiring recusal "in any proceeding in which his impartiality might reasonably be questioned"</li>
+                            <li>§ 455(b) - Specific circumstances requiring recusal, including personal bias, prior involvement, financial interest, and relationships</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <strong>28 U.S.C. § 144</strong> - Bias or prejudice of judge
+                        <ul>
+                            <li>Procedure for filing affidavit alleging personal bias or prejudice</li>
+                            <li>Requirements for timeliness, specificity, and good faith</li>
+                        </ul>
+                    </li>
+                </ul>
+                
+                <h3>Supreme Court Precedents</h3>
+                
+                <ul>
+                    <li>
+                        <strong>Liteky v. United States</strong>, 510 U.S. 540 (1994)
+                        <ul>
+                            <li>Established the "extrajudicial source" doctrine</li>
+                            <li>Clarified that judicial rulings alone almost never constitute valid basis for bias or partiality motion</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <strong>Caperton v. A.T. Massey Coal Co.</strong>, 556 U.S. 868 (2009)
+                        <ul>
+                            <li>Established constitutional due process standard for judicial recusal</li>
+                            <li>Focused on "probability of actual bias" test</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <strong>Williams v. Pennsylvania</strong>, 579 U.S. ___ (2016)
+                        <ul>
+                            <li>Addressed prior involvement of judge in related proceedings</li>
+                            <li>Established standard for recusal based on prior participation in case</li>
+                        </ul>
+                    </li>
+                </ul>
+                
+                <div class="content-footer">
+                    <div class="page-nav">
+                        <div class="page-nav-prev">
+                            <a href="../index.html">
+                                <i class="fas fa-arrow-left"></i>
+                                Previous: Documentation Home
+                            </a>
+                        </div>
+                        <div class="page-nav-next">
+                            <a href="legal-standards.html">
+                                Next: Legal Standards
+                                <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="last-updated">
+                        Last updated: August 30, 2025
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    
+    <!-- JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/components/prism-javascript.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/components/prism-python.min.js"></script>
+    <script src="../assets/js/main.js"></script>
+    <script src="../assets/js/search.js"></script>
+</body>
+</html>

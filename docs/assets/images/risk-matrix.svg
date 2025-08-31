@@ -1,0 +1,114 @@
+<svg width="400" height="400" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    .matrix-text { font-family: Arial, sans-serif; font-weight: bold; text-anchor: middle; }
+    .axis-label { font-family: Arial, sans-serif; font-size: 14px; text-anchor: middle; }
+    .low { fill: #2ecc71; }
+    .medium { fill: #f39c12; }
+    .high { fill: #e74c3c; }
+    .critical { fill: #7b241c; }
+    .cell-text { font-family: Arial, sans-serif; font-size: 12px; text-anchor: middle; fill: white; }
+    .axis-value { font-family: Arial, sans-serif; font-size: 12px; text-anchor: middle; }
+  </style>
+  
+  <!-- Matrix Cells -->
+  <!-- Row 5 -->
+  <rect x="100" y="50" width="50" height="50" class="medium" />
+  <rect x="150" y="50" width="50" height="50" class="high" />
+  <rect x="200" y="50" width="50" height="50" class="high" />
+  <rect x="250" y="50" width="50" height="50" class="critical" />
+  <rect x="300" y="50" width="50" height="50" class="critical" />
+  
+  <!-- Row 4 -->
+  <rect x="100" y="100" width="50" height="50" class="medium" />
+  <rect x="150" y="100" width="50" height="50" class="medium" />
+  <rect x="200" y="100" width="50" height="50" class="high" />
+  <rect x="250" y="100" width="50" height="50" class="high" />
+  <rect x="300" y="100" width="50" height="50" class="critical" />
+  
+  <!-- Row 3 -->
+  <rect x="100" y="150" width="50" height="50" class="low" />
+  <rect x="150" y="150" width="50" height="50" class="medium" />
+  <rect x="200" y="150" width="50" height="50" class="medium" />
+  <rect x="250" y="150" width="50" height="50" class="high" />
+  <rect x="300" y="150" width="50" height="50" class="high" />
+  
+  <!-- Row 2 -->
+  <rect x="100" y="200" width="50" height="50" class="low" />
+  <rect x="150" y="200" width="50" height="50" class="low" />
+  <rect x="200" y="200" width="50" height="50" class="medium" />
+  <rect x="250" y="200" width="50" height="50" class="medium" />
+  <rect x="300" y="200" width="50" height="50" class="high" />
+  
+  <!-- Row 1 -->
+  <rect x="100" y="250" width="50" height="50" class="low" />
+  <rect x="150" y="250" width="50" height="50" class="low" />
+  <rect x="200" y="250" width="50" height="50" class="low" />
+  <rect x="250" y="250" width="50" height="50" class="medium" />
+  <rect x="300" y="250" width="50" height="50" class="medium" />
+  
+  <!-- Cell Values -->
+  <!-- Row 5 -->
+  <text x="125" y="80" class="cell-text">5</text>
+  <text x="175" y="80" class="cell-text">10</text>
+  <text x="225" y="80" class="cell-text">15</text>
+  <text x="275" y="80" class="cell-text">20</text>
+  <text x="325" y="80" class="cell-text">25</text>
+  
+  <!-- Row 4 -->
+  <text x="125" y="130" class="cell-text">4</text>
+  <text x="175" y="130" class="cell-text">8</text>
+  <text x="225" y="130" class="cell-text">12</text>
+  <text x="275" y="130" class="cell-text">16</text>
+  <text x="325" y="130" class="cell-text">20</text>
+  
+  <!-- Row 3 -->
+  <text x="125" y="180" class="cell-text">3</text>
+  <text x="175" y="180" class="cell-text">6</text>
+  <text x="225" y="180" class="cell-text">9</text>
+  <text x="275" y="180" class="cell-text">12</text>
+  <text x="325" y="180" class="cell-text">15</text>
+  
+  <!-- Row 2 -->
+  <text x="125" y="230" class="cell-text">2</text>
+  <text x="175" y="230" class="cell-text">4</text>
+  <text x="225" y="230" class="cell-text">6</text>
+  <text x="275" y="230" class="cell-text">8</text>
+  <text x="325" y="230" class="cell-text">10</text>
+  
+  <!-- Row 1 -->
+  <text x="125" y="280" class="cell-text">1</text>
+  <text x="175" y="280" class="cell-text">2</text>
+  <text x="225" y="280" class="cell-text">3</text>
+  <text x="275" y="280" class="cell-text">4</text>
+  <text x="325" y="280" class="cell-text">5</text>
+  
+  <!-- Axis Labels -->
+  <text x="75" y="150" class="axis-label" transform="rotate(270, 75, 150)">IMPACT</text>
+  <text x="225" y="320" class="axis-label">LIKELIHOOD</text>
+  
+  <!-- Axis Values -->
+  <text x="75" y="275" class="axis-value">1</text>
+  <text x="75" y="225" class="axis-value">2</text>
+  <text x="75" y="175" class="axis-value">3</text>
+  <text x="75" y="125" class="axis-value">4</text>
+  <text x="75" y="75" class="axis-value">5</text>
+  
+  <text x="125" y="300" class="axis-value">1</text>
+  <text x="175" y="300" class="axis-value">2</text>
+  <text x="225" y="300" class="axis-value">3</text>
+  <text x="275" y="300" class="axis-value">4</text>
+  <text x="325" y="300" class="axis-value">5</text>
+  
+  <!-- Legend -->
+  <rect x="100" y="340" width="20" height="20" class="low" />
+  <text x="170" y="355" class="axis-value" text-anchor="start">Low Risk (1-4)</text>
+  
+  <rect x="100" y="370" width="20" height="20" class="medium" />
+  <text x="170" y="385" class="axis-value" text-anchor="start">Medium Risk (5-9)</text>
+  
+  <rect x="230" y="340" width="20" height="20" class="high" />
+  <text x="300" y="355" class="axis-value" text-anchor="start">High Risk (10-16)</text>
+  
+  <rect x="230" y="370" width="20" height="20" class="critical" />
+  <text x="300" y="385" class="axis-value" text-anchor="start">Critical Risk (17-25)</text>
+</svg>

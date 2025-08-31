@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Legal Prejudice Analysis Community Forum | Discuss, Share, and Learn</title>
+    <meta name="description" content="Join the Legal Prejudice Analysis community forum to discuss implementation strategies, share experiences, and learn from other legal practitioners.">
+    <meta name="keywords" content="legal prejudice, community forum, legal discussion, prejudice analysis, legal practitioners">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="../assets/favicon.png">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="../assets/css/styles.css">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    
+    <!-- Open Graph / Social Media -->
+    <meta property="og:title" content="Legal Prejudice Analysis Community Forum">
+    <meta property="og:description" content="Join the Legal Prejudice Analysis community forum to discuss implementation strategies, share experiences, and learn from other legal practitioners.">
+    <meta property="og:image" content="https://forum.legal-prejudice-analysis.org/assets/images/og-image.jpg">
+    <meta property="og:url" content="https://forum.legal-prejudice-analysis.org/">
+    <meta property="og:type" content="website">
+    
+    <style>
+        .forum-header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 3rem 0;
+            text-align: center;
+        }
+        
+        .forum-header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .forum-header p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .forum-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        .forum-section {
+            margin-bottom: 3rem;
+        }
+        
+        .coming-soon {
+            text-align: center;
+            padding: 3rem 0;
+        }
+        
+        .coming-soon h2 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+        
+        .coming-soon p {
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto 2rem;
+        }
+        
+        .forum-categories {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .category-card {
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            overflow: hidden;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        
+        .category-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        
+        .category-header {
+            background-color: var(--light-accent);
+            padding: 1.5rem;
+            display: flex;
+            align-items: center;
+        }
+        
+        .category-icon {
+            font-size: 2rem;
+            color: var(--accent-color);
+            margin-right: 1rem;
+        }
+        
+        .category-title h3 {
+            margin-bottom: 0.25rem;
+        }
+        
+        .category-stats {
+            font-size: 0.9rem;
+            color: var(--text-lighter);
+        }
+        
+        .category-content {
+            padding: 1.5rem;
+        }
+        
+        .category-content p {
+            margin-bottom: 1.5rem;
+        }
+        
+        .category-topics {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .category-topics li {
+            padding: 0.75rem 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+        
+        .category-topics li:last-child {
+            border-bottom: none;
+        }
+        
+        .topic-link {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            text-decoration: none;
+            color: var(--text-color);
+        }
+        
+        .topic-link:hover {
+            color: var(--accent-color);
+        }
+        
+        .topic-replies {
+            background-color: var(--light-accent);
+            padding: 0.25rem 0.5rem;
+            border-radius: 4px;
+            font-size: 0.8rem;
+        }
+        
+        .forum-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .feature-item {
+            text-align: center;
+            padding: 1.5rem;
+        }
+        
+        .feature-item i {
+            font-size: 3rem;
+            color: var(--accent-color);
+            margin-bottom: 1rem;
+        }
+        
+        .feature-item h3 {
+            margin-bottom: 1rem;
+        }
+        
+        .signup-form {
+            max-width: 500px;
+            margin: 2rem auto;
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+        
+        .form-group input {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            font-family: var(--font-body);
+        }
+        
+        .form-actions {
+            text-align: center;
+        }
+    </style>
+<script src="https://sites.super.myninja.ai/_assets/ninja-daytona-script.js"></script>
+</head>
+<body>
+    <header class="site-header">
+        <div class="container">
+            <div class="logo">
+                <a href="../">
+                    <img src="../assets/images/logo.svg" alt="Legal Prejudice Analysis Logo">
+                    <span>Legal Prejudice Analysis</span>
+                </a>
+            </div>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="../framework/">Framework</a></li>
+                    <li><a href="../risk-analysis/">Risk Analysis</a></li>
+                    <li><a href="../practical-guide/">Practical Guide</a></li>
+                    <li><a href="../case-studies/">Case Studies</a></li>
+                    <li><a href="../demo/">Interactive Demo</a></li>
+                </ul>
+            </nav>
+            <div class="mobile-nav-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </header>
+
+    <div class="forum-header">
+        <div class="container">
+            <h1>Community Forum</h1>
+            <p>Join the conversation with legal practitioners implementing the Legal Prejudice Analysis framework. Share experiences, ask questions, and learn from the community.</p>
+        </div>
+    </div>
+
+    <main class="forum-content">
+        <div class="coming-soon">
+            <h2>Forum Coming Soon</h2>
+            <p>We're currently setting up our community forum. Check back in September 2025 to join the conversation and connect with other legal practitioners.</p>
+            <a href="../docs/" class="button">Explore Documentation</a>
+        </div>
+        
+        <div class="forum-section">
+            <h2>Planned Forum Categories</h2>
+            <p>Our community forum will include the following discussion categories:</p>
+            
+            <div class="forum-categories">
+                <div class="category-card">
+                    <div class="category-header">
+                        <div class="category-icon">
+                            <i class="fas fa-book-open"></i>
+                        </div>
+                        <div class="category-title">
+                            <h3>Framework Implementation</h3>
+                            <div class="category-stats">0 topics • 0 posts</div>
+                        </div>
+                    </div>
+                    <div class="category-content">
+                        <p>Discussions about implementing the Legal Prejudice Analysis framework in various legal contexts and practice areas.</p>
+                        <ul class="category-topics">
+                            <li><a href="#" class="topic-link">Getting started with the framework <span class="topic-replies">0</span></a></li>
+                            <li><a href="#" class="topic-link">Adapting the framework for different jurisdictions <span class="topic-replies">0</span></a></li>
+                            <li><a href="#" class="topic-link">Training staff on the framework <span class="topic-replies">0</span></a></li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="category-card">
+                    <div class="category-header">
+                        <div class="category-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <div class="category-title">
+                            <h3>Risk Assessment</h3>
+                            <div class="category-stats">0 topics • 0 posts</div>
+                        </div>
+                    </div>
+                    <div class="category-content">
+                        <p>Discussions about risk assessment methodologies, probability analysis, and quantitative approaches to legal prejudice.</p>
+                        <ul class="category-topics">
+                            <li><a href="#" class="topic-link">Calibrating risk matrices for your practice <span class="topic-replies">0</span></a></li>
+                            <li><a href="#" class="topic-link">Bayesian analysis in prejudice evaluation <span class="topic-replies">0</span></a></li>
+                            <li><a href="#" class="topic-link">Documenting risk assessments <span class="topic-replies">0</span></a></li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="category-card">
+                    <div class="category-header">
+                        <div class="category-icon">
+                            <i class="fas fa-gavel"></i>
+                        </div>
+                        <div class="category-title">
+                            <h3>Case Discussions</h3>
+                            <div class="category-stats">0 topics • 0 posts</div>
+                        </div>
+                    </div>
+                    <div class="category-content">
+                        <p>Share and discuss real-world cases involving legal prejudice, with analysis using the framework methodology.</p>
+                        <ul class="category-topics">
+                            <li><a href="#" class="topic-link">Financial interest case studies <span class="topic-replies">0</span></a></li>
+                            <li><a href="#" class="topic-link">Extrajudicial statement analysis <span class="topic-replies">0</span></a></li>
+                            <li><a href="#" class="topic-link">Successful recusal motions <span class="topic-replies">0</span></a></li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="category-card">
+                    <div class="category-header">
+                        <div class="category-icon">
+                            <i class="fas fa-tools"></i>
+                        </div>
+                        <div class="category-title">
+                            <h3>Tools & Resources</h3>
+                            <div class="category-stats">0 topics • 0 posts</div>
+                        </div>
+                    </div>
+                    <div class="category-content">
+                        <p>Discussions about tools, templates, and resources for implementing the Legal Prejudice Analysis framework.</p>
+                        <ul class="category-topics">
+                            <li><a href="#" class="topic-link">Custom worksheet modifications <span class="topic-replies">0</span></a></li>
+                            <li><a href="#" class="topic-link">Software integration experiences <span class="topic-replies">0</span></a></li>
+                            <li><a href="#" class="topic-link">Resource recommendations <span class="topic-replies">0</span></a></li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="category-card">
+                    <div class="category-header">
+                        <div class="category-icon">
+                            <i class="fas fa-graduation-cap"></i>
+                        </div>
+                        <div class="category-title">
+                            <h3>Learning & Development</h3>
+                            <div class="category-stats">0 topics • 0 posts</div>
+                        </div>
+                    </div>
+                    <div class="category-content">
+                        <p>Resources for learning about legal prejudice analysis, including training materials, courses, and educational content.</p>
+                        <ul class="category-topics">
+                            <li><a href="#" class="topic-link">Training program development <span class="topic-replies">0</span></a></li>
+                            <li><a href="#" class="topic-link">CLE opportunities <span class="topic-replies">0</span></a></li>
+                            <li><a href="#" class="topic-link">Academic research on prejudice <span class="topic-replies">0</span></a></li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="category-card">
+                    <div class="category-header">
+                        <div class="category-icon">
+                            <i class="fas fa-comments"></i>
+                        </div>
+                        <div class="category-title">
+                            <h3>General Discussion</h3>
+                            <div class="category-stats">0 topics • 0 posts</div>
+                        </div>
+                    </div>
+                    <div class="category-content">
+                        <p>General discussions about legal prejudice, judicial bias, and related topics not covered in other categories.</p>
+                        <ul class="category-topics">
+                            <li><a href="#" class="topic-link">Introductions <span class="topic-replies">0</span></a></li>
+                            <li><a href="#" class="topic-link">News and updates <span class="topic-replies">0</span></a></li>
+                            <li><a href="#" class="topic-link">Suggestions and feedback <span class="topic-replies">0</span></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="forum-section">
+            <h2>Forum Features</h2>
+            
+            <div class="forum-features">
+                <div class="feature-item">
+                    <i class="fas fa-users"></i>
+                    <h3>Community Networking</h3>
+                    <p>Connect with legal practitioners implementing the framework in various practice areas and jurisdictions.</p>
+                </div>
+                
+                <div class="feature-item">
+                    <i class="fas fa-lightbulb"></i>
+                    <h3>Knowledge Sharing</h3>
+                    <p>Share insights, strategies, and lessons learned from implementing the framework in real cases.</p>
+                </div>
+                
+                <div class="feature-item">
+                    <i class="fas fa-question-circle"></i>
+                    <h3>Expert Support</h3>
+                    <p>Get answers to your questions from experienced practitioners and framework developers.</p>
+                </div>
+                
+                <div class="feature-item">
+                    <i class="fas fa-file-alt"></i>
+                    <h3>Resource Library</h3>
+                    <p>Access community-contributed templates, worksheets, and other resources to enhance your practice.</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="forum-section">
+            <h2>Join the Waitlist</h2>
+            <p>Sign up to be notified when our community forum launches:</p>
+            
+            <form class="signup-form">
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="practice-area">Practice Area</label>
+                    <input type="text" id="practice-area" name="practice-area">
+                </div>
+                
+                <div class="form-actions">
+                    <button type="submit" class="button">Join Waitlist</button>
+                </div>
+            </form>
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <img src="../assets/images/logo-white.svg" alt="Legal Prejudice Analysis Logo">
+                    <p>Legal Prejudice Analysis</p>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h4>Documentation</h4>
+                        <ul>
+                            <li><a href="../framework/">Framework</a></li>
+                            <li><a href="../risk-analysis/">Risk Analysis</a></li>
+                            <li><a href="../practical-guide/">Practical Guide</a></li>
+                            <li><a href="../case-studies/">Case Studies</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h4>Resources</h4>
+                        <ul>
+                            <li><a href="../demo/">Interactive Demo</a></li>
+                            <li><a href="../downloads/">Downloads</a></li>
+                            <li><a href="../api/">API Documentation</a></li>
+                            <li><a href="../forum/">Community Forum</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h4>Project</h4>
+                        <ul>
+                            <li><a href="https://github.com/swptcw/legal-prejudice-analysis">GitHub Repository</a></li>
+                            <li><a href="https://github.com/swptcw/legal-prejudice-analysis/issues">Issue Tracker</a></li>
+                            <li><a href="https://github.com/swptcw/legal-prejudice-analysis/blob/main/CONTRIBUTING.md">Contributing</a></li>
+                            <li><a href="https://github.com/swptcw/legal-prejudice-analysis/blob/main/LICENSE">License</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Legal Prejudice Analysis Project. All rights reserved.</p>
+                <div class="social-links">
+                    <a href="https://github.com/swptcw/legal-prejudice-analysis" target="_blank"><i class="fab fa-github"></i></a>
+                    <a href="https://twitter.com/legalprejudice" target="_blank"><i class="fab fa-twitter"></i></a>
+                    <a href="https://linkedin.com/company/legal-prejudice-analysis" target="_blank"><i class="fab fa-linkedin"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="../assets/js/main.js"></script>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Form submission (placeholder)
+            const signupForm = document.querySelector('.signup-form');
+            if (signupForm) {
+                signupForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    const name = this.querySelector('#name').value;
+                    const email = this.querySelector('#email').value;
+                    alert(`Thank you, ${name}! We'll notify ${email} when the forum launches.`);
+                    this.reset();
+                });
+            }
+            
+            // Topic links (placeholder)
+            const topicLinks = document.querySelectorAll('.topic-link');
+            topicLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    alert('The forum will be available in September 2025. Thank you for your interest!');
+                });
+            });
+        });
+    </script>
+</body>
+</html>
