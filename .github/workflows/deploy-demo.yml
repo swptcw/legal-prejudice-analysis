@@ -1,0 +1,35 @@
+name: Deploy Demo Site
+on:
+  push:
+    branches: [ main ]
+    paths:
+      - "demo/**"
+      - ".github/workflows/deploy-demo.yml"
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main'
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Prepare SSH key
+        env: { VPS_SSH_KEY_B64: ${{ secrets.VPS_SSH_KEY_B64 }} }
+        run: |
+          echo "$VPS_SSH_KEY_B64" | base64 -d > id_ci
+          chmod 600 id_ci
+          head -n1 id_ci | grep -q "BEGIN OPENSSH PRIVATE KEY" || { echo "Invalid key after decode"; exit 2; }
+
+      - name: Rsync demo to VPS
+        env:
+          SSH_HOST: ${{ secrets.VPS_HOST }}
+          SSH_USER: ${{ secrets.VPS_USER }}   # 'tim'
+        run: |
+          rsync -avzr --delete -e "ssh -i id_ci -o StrictHostKeyChecking=no" \
+            demo/ "$SSH_USER@$SSH_HOST:/var/www/demo/current/"
+
+      - name: Warm health check (API)
+        run: curl -fsS https://api.legal-prejudice-analysis.org/health | grep -q '"status":"ok"'
+
+      - name: Smoke check (demo reachable)
+        run: curl -fsSI https://demo.legal-prejudice-analysis.org/ | grep -q '200'
