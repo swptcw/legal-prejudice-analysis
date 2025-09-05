@@ -1,0 +1,38 @@
+name: Deploy to VPS (Apache)
+on:
+  push:
+    branches: [ main ]
+    paths:
+      - "docs/**"
+      - "dist/**"
+      - ".github/workflows/deploy.yml"
+      - "package.json"
+      - "pnpm-lock.yaml"
+      - "vite.config.*"
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      # If you build your site, uncomment:
+      # - uses: actions/setup-node@v4
+      #   with: { node-version: "20" }
+      # - run: npm ci && npm run build
+
+      - name: Rsync site to VPS
+        uses: burnett01/rsync-deployments@5.2
+        with:
+          switches: -avzr --delete
+          path: dist/   # or docs/
+          remote_path: /var/www/legal-prejudice-analysis.org/current/
+          remote_host: ${{ secrets.VPS_HOST }}
+          remote_user: ${{ secrets.VPS_USER }}
+          remote_key: ${{ secrets.VPS_SSH_KEY }}
+
+      - name: Reload Apache
+        run: |
+          ssh -o StrictHostKeyChecking=no -i ~/.ssh/id_rsa \
+          ${{ secrets.VPS_USER }}@${{ secrets.VPS_HOST }} \
+          "sudo systemctl reload apache2 || true"
