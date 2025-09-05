@@ -1,4 +1,5 @@
 name: Deploy to VPS (Apache)
+
 on:
   push:
     branches: [ main ]
@@ -13,28 +14,45 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main'
+
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout
+        uses: actions/checkout@v4
         with:
           fetch-depth: 0
-          submodules: false
-      # If you build your site, uncomment:
-      # - uses: actions/setup-node@v4
-      #   with: { node-version: "20" }
-      # - run: npm ci && npm run build
+          submodules: false  # keep false unless you really need submodules
 
-      - name: Rsync site to VPS
-        uses: burnett01/rsync-deployments@5.2
-        with:
-          switches: -avzr --delete
-          path: dist/   # or docs/
-          remote_path: /var/www/legal-prejudice-analysis.org/current/
-          remote_host: ${{ secrets.VPS_HOST }}
-          remote_user: ${{ secrets.VPS_USER }}
-          remote_key: ${{ secrets.VPS_SSH_KEY }}
+      # Decide which folder to deploy (dist/ or docs/)
+      - name: Detect site output
+        id: out
+        run: |
+          if [ -d dist ]; then echo "dir=dist" >> $GITHUB_OUTPUT;
+          elif [ -d docs ]; then echo "dir=docs" >> $GITHUB_OUTPUT;
+          else echo "No dist/ or docs/ directory found" >&2; exit 3; fi
+
+      - name: Prepare SSH key
+        env:
+          VPS_SSH_KEY: ${{ secrets.VPS_SSH_KEY }}
+        run: |
+          echo "$VPS_SSH_KEY" > id_ci
+          chmod 600 id_ci
+          # basic format check
+          head -n1 id_ci | grep -q "BEGIN OPENSSH PRIVATE KEY" || { echo "Invalid key format"; exit 2; }
+
+      - name: Deploy with rsync
+        env:
+          SSH_HOST: ${{ secrets.VPS_HOST }}
+          SSH_USER: ${{ secrets.VPS_USER }}
+        run: |
+          rsync -avzr --delete \
+            -e "ssh -i id_ci -o StrictHostKeyChecking=no" \
+            "${{ steps.out.outputs.dir }}/" \
+            "$SSH_USER@$SSH_HOST:/var/www/legal-prejudice-analysis.org/current/"
 
       - name: Reload Apache
+        env:
+          SSH_HOST: ${{ secrets.VPS_HOST }}
+          SSH_USER: ${{ secrets.VPS_USER }}
         run: |
-          ssh -o StrictHostKeyChecking=no -i ~/.ssh/id_rsa \
-          ${{ secrets.VPS_USER }}@${{ secrets.VPS_HOST }} \
-          "sudo systemctl reload apache2 || true"
+          ssh -i id_ci -o StrictHostKeyChecking=no "$SSH_USER@$SSH_HOST" "sudo systemctl reload apache2 || true"
