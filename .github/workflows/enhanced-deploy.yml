@@ -10,7 +10,7 @@ on:
 env:
   VPS_HOST: ${{ secrets.VPS_HOST }}
   VPS_USER: ${{ secrets.VPS_USER }}
-  DEPLOY_PATH: /var/www/demo.legal-prejudice-analysis.org
+  DEPLOY_PATH: /var/www/demo/current
 
 jobs:
   deploy:
