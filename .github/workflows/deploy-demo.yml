@@ -14,12 +14,13 @@ jobs:
       - uses: actions/checkout@v4
 
       - name: Prepare SSH key
-        env: { VPS_SSH_KEY_B64: ${{ secrets.VPS_SSH_KEY_B64 }} }
+        env:
+          VPS_SSH_KEY: ${{ secrets.VPS_SSH_KEY }}
         run: |
-          echo "$VPS_SSH_KEY_B64" | base64 -d > id_ci
+          echo "$VPS_SSH_KEY" > id_ci
           chmod 600 id_ci
-          head -n1 id_ci | grep -q "BEGIN OPENSSH PRIVATE KEY" || { echo "Invalid key after decode"; exit 2; }
-
+          # basic format check
+          head -n1 id_ci | grep -q "BEGIN OPENSSH PRIVATE KEY" || { echo "Invalid key format"; exit 2; }
       - name: Rsync demo to VPS
         env:
           SSH_HOST: ${{ secrets.VPS_HOST }}
