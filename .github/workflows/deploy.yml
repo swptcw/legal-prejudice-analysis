@@ -10,7 +10,8 @@ on:
       - "package.json"
       - "pnpm-lock.yaml"
       - "vite.config.*"
-
+      env:
+  VPS_HOST: ${{ secrets.VPS_HOST }}
 jobs:
   deploy:
     runs-on: ubuntu-latest
