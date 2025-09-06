@@ -54,7 +54,6 @@ jobs:
           
           # Reload Apache
           sudo systemctl reload apache2
-ENDSSH
         
     - name: Update permissions on VPS
       run: |
